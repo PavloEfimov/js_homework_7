@@ -11,7 +11,7 @@
 
 <body>
     <h3>Задание 1</h3>
-    <h5>Количество input на странице не больше 6!!!</h5>
+    <!-- <h5>Количество input на странице не больше 6!!!</h5>
     <button id="but1">запустить задачу 1</button>
     <br>
     <br>
@@ -23,31 +23,40 @@
     </form>
     <textarea name="" id="resume1" cols="30" rows="5" placeholder="текст из элементов input"></textarea>
     <button id="add">собрать</button>
-    <button id="clear1">очистить</button>
+    <button id="clear1">очистить</button> -->
+
+    <div id="wrapper1">
+        <div id="form1">
+        <input type="text" class="texter" placeholder="введите текст">
+        <button class="plus">+</button>
+        <span class="hid" hidden> Заполните поле!</span>
+        </div>
+    </div>
+
+    <textarea name="" id="area1" cols="30" rows="5"></textarea>
+    <button id="collect">собрать</button>
+
     <h3>Задание 2</h3>
     <form id="task2">
         <label>
-            <input type="radio" name="two" value="even">Четные</label>
+            <input type="radio" class="opt" name="two" value="chetko">Четные</label>
         <br>
         <label>
-            <input type="radio" name="two" value="odd">Нечетные </label>
+            <input type="radio" class="opt" name="two" value="nechetko">Нечетные </label>
         <br>
         <label>
-            <input type="radio" name="two" value="all" checked>Все </label>
+            <input type="radio" class="opt" name="two" value="all" checked>Все </label>
         <br>
     </form>
-    <textarea name="" id="resume2" cols="30" rows="5" placeholder="текст из элементов input первого задания"></textarea>
-    <button id="add2">собрать</button>
-    <button id="clear2">очистить</button>
     <h3>Задание 3</h3>
     <button id="task3">проверка на пустые input</button>
     <h3>Задание 4</h3>
     <button id="task4">задание 4</button>
     <br>
     <br>
-    <div id="form4" hidden>
-        <button id="opt1">Опция 1</button>
-        <button id="opt2">Опция 2</button>
+    <div id="form_4" hidden>
+        <button id="opt_1">Опция 1</button>
+        <button id="opt_2">Опция 2</button>
     </div>
     <span id="var1" hidden>Вы выбрали опцию 1</span>
     <span id="var2" hidden>Вы выбрали опцию 2</span>

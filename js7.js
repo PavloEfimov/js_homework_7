@@ -1,98 +1,81 @@
 // задача 1
 
 
-var tableElem = document.getElementById('task1');
-var elements = tableElem.getElementsByTagName('input');
-var buttons = tableElem.getElementsByTagName('button');
-var spans = tableElem.getElementsByTagName('span');
+var wrapper1 = document.getElementById('wrapper1');
+var form1 = document.getElementById('form1');
+var plus = document.getElementsByClassName('plus')[0];
+var count1 = 1;
+plus.onclick = function() {
+    if (count1 < 6) {
+        count1++;
+        var form2 = form1.cloneNode(true);
+        form2.querySelector('input').value = '';
+        form2.querySelector('button').className = 'minus';
+        form2.querySelector('button').innerHTML = '-';
+        form2.id = 'form' + count1;
+        wrapper1.appendChild(form2);
+    }
 
-but1.onclick = function() {
+    var minus = document.getElementsByClassName('minus');
 
-    document.onclick = function(event1) {
+    for (var i = 0; i < minus.length; i++) {
+        minus[i].onclick = f1;
+    }
 
-        console.log(event1);
-
-        if (elements.length > 5) {
-            alert('Количество input на странице не больше 6!!!');
-            return;
-        } else if (event1.target.className == 'plus1') {
-
-            document.getElementById('task1').innerHTML += '<input type="text" placeholder="введите текст">  <button class="minus1">-</button> <span id="thirdTask" hidden>Заполните поле! </span> <br></br>';
-
-        } else if (event1.target.className == 'minus1') {
-
-            document.getElementById('task1').innerHTML += ''
-            if (elements[1] !== undefined) {
-                elements[0].remove()
-                buttons[1].remove()
-            } else console.log('удалять нечего');
-        }
+    function f1() {
+        count1--;
+        var classDel = 'form' + (count1 + 1);
+        console.log(classDel);
+        console.log(document.getElementById(classDel));
+        var formDel = document.getElementById(classDel);
+        formDel.parentNode.removeChild(formDel);
     }
 }
 
-document.getElementById('add').onclick = function() {
-    for (var i = 0; i < elements.length; i++) {
-        var input = elements[i];
-        resume1.value += input.value;
+
+var texter = document.getElementsByClassName('texter');
+var area1 = document.getElementById('area1');
+document.getElementById('collect').onclick = collect;
+
+
+function collect() {
+    area1.value = '';
+    for (var j = 0; j < 4; j++) {
+        if (document.getElementsByClassName('opt')[j].checked !== true) continue
+        else {
+            var chosenRadio = document.getElementsByClassName('opt')[j].value;
+
+            for (var i = 0; i < texter.length; i++) {
+
+                if (chosenRadio == 'chetko') {
+                    if (i % 2 == 1) {
+                        area1.value += texter[i].value + ' ';
+                    }
+                } else if (chosenRadio == 'nechetko') {
+                    if (i % 2 == 0) {
+                        area1.value += texter[i].value + ' ';
+                    }
+                } else {
+                    area1.value += texter[i].value + ' ';
+                }
+            }
+        } break
     }
-
-}
-
-document.getElementById('clear1').onclick = function() {
-    resume1.value = '';
 }
 
 // задача 2
-
-var tableElem2 = document.getElementById('task2');
-var elements2 = tableElem2.getElementsByTagName('input');
-
-document.getElementById('add2').onclick = function() {
-
-
-    console.log(elements2[2].checked);
-
-    if (elements2[2].checked == true) {
-
-        for (var i = 0; i < elements.length; i++) {
-            var input = elements[i];
-            resume2.value += input.value;
-
-        }
-
-    } else if (elements2[0].checked == true) {
-
-        for (var i = 0; i < elements.length; i++) {
-            var input = elements[i];
-            if (i % 2 !== 0) resume2.value += input.value;
-            else resume2.value += '';
-
-        }
-    } else {
-
-        for (var i = 0; i < elements.length; i++) {
-            var input = elements[i];
-            if (i % 2 == 0) resume2.value += input.value;
-            else resume2.value += '';
-
-
-        }
-    }
-}
-
-document.getElementById('clear2').onclick = function() {
-    resume2.value = '';
-}
+// код решения приведен в задаче 1
 
 // задача 3
 
 document.getElementById('task3').onclick = function() {
 
-    console.log(elements);
-    console.log(elements[0].value == '');
 
-    for (var i = 0; i < elements.length; i++) {
-        var input = elements[i];
+    var spans = document.getElementsByClassName('hid');
+
+
+    for (var i = 0; i < texter.length; i++) {
+        var input = texter[i];
         if (input.value == '') {
             input.style.border = '1px solid red';
             spans[i].hidden = !spans[i].hidden;
@@ -107,17 +90,17 @@ document.getElementById('task3').onclick = function() {
 
 document.getElementById('task4').onclick = function() {
 
-    form4.hidden = !form4.hidden;
+    form_4.hidden = !form_4.hidden;
     var1.hidden = var2.hidden = true;
 
-    document.getElementById('opt1').onclick = function() {
+    document.getElementById('opt_1').onclick = function() {
         var1.hidden = !var1.hidden;
-        form4.hidden = !form4.hidden;
+        form_4.hidden = !form_4.hidden;
     }
 
-    document.getElementById('opt2').onclick = function() {
+    document.getElementById('opt_2').onclick = function() {
         var2.hidden = !var2.hidden;
-        form4.hidden = !form4.hidden;
+        form_4.hidden = !form_4.hidden;
     }
 }
 
@@ -165,7 +148,7 @@ document.onmousemove = function(event7) {
 
         res7.innerHTML = 'адрес изображения: ' + event7.target.currentSrc + '<br><br>' + 'атрибут alt: ' + event7.target.alt
     } else if (event7.target.tagName == 'A') {
-        // console.log(event7);	
+        // console.log(event7); 
         res7.innerHTML = 'адрес ссылки: ' + event7.target.href + '<br><br>' + 'атрибут title: ' + event7.target.title + '<br><br>' + 'атрибут target: ' + event7.target.target
     }
 
